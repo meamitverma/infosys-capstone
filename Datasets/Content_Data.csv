@@ -1,0 +1,110 @@
+ShowID,Genre,Actors,Director,Release_Year,Synopsis
+M1,Comedy,"Adam Sandler|Jennifer Aniston",David Miller,2023,Two estranged friends reunite for a wild weekend trip.
+M2,Action,"Chris Hemsworth|Tessa Thompson",Taika Waititi,2022,A thrilling adventure with a team of superheroes.
+M3,Romance,"Ryan Reynolds|Sandra Bullock",Adam Shankman,2024,A chance encounter leads to a second chance at love.
+M4,Sci-Fi,"Scarlett Johansson|Chris Evans",Joe Russo,2021,A group of astronauts on a dangerous mission to save humanity.
+M5,Drama,"Viola Davis|Chadwick Boseman",George C. Wolfe,2020,A powerful story about a family facing injustice.
+M6,Romance,"Ryan Reynolds|Blake Lively",Anne Fletcher,2024,A romantic tale of two high school sweethearts rekindling their love.
+M7,Drama,"Viola Davis|Denzel Washington",Ava DuVernay,2023,An intense drama about a family's struggle for survival in a changing world.
+M8,Thriller,"Jake Gyllenhaal|Amy Adams",Denis Villeneuve,2022,A suspenseful thriller that explores the dark side of human nature.
+M9,Sci-Fi,"Tom Holland|Daisy Ridley",J.J. Abrams,2024,A journey through space and time with unexpected twists and turns.
+M10,Animation,"Voices of Tom Hanks|Tim Allen",John Lasseter,2023,A heartwarming animated story about the true meaning of friendship.
+M11,Comedy,"Ryan Reynolds|Emma Stone",Paul Feig,2024,A hilarious adventure of two unlikely friends finding their way in a comedic world.
+M12,Action,"Chris Hemsworth|Scarlett Johansson",Russo Brothers,2023,An action-packed journey of heroes fighting against all odds to save the world.
+M13,Romance,"Rachel McAdams|Ryan Gosling",Nick Cassavetes,2024,A romantic tale that navigates the complexities of love and relationships.
+M14,Horror,"Vera Farmiga|Patrick Wilson",James Wan,2023,A chilling horror story that will keep you on the edge of your seat.
+M15,Mystery,"Daniel Craig|Ana de Armas",Rian Johnson,2024,A whodunit that twists and turns through a labyrinth of secrets.
+M16,Fantasy,"Eddie Redmayne|Katherine Waterston",David Yates,2023,A magical world where fantasy creatures and humans coexist in harmony.
+M17,Biography,"Leonardo DiCaprio|Jennifer Lawrence",Martin Scorsese,2024,The inspiring true story of a visionary's rise to fame against all odds.
+M18,Documentary,Narrated by Morgan Freeman,Ken Burns,2023,An insightful documentary exploring the wonders of our natural world.
+M19,Musical,"Hugh Jackman|Anne Hathaway",Tom Hooper,2024,A spectacular musical journey filled with emotion and breathtaking performances.
+M20,Adventure,"Dwayne Johnson|Emily Blunt",Jaume Collet-Serra,2023,An epic adventure that takes you through treacherous landscapes and ancient mysteries.
+M21,Western,"Clint Eastwood|John Wayne",John Ford,2024,A classic western tale of outlaws and lawmen in the American frontier.
+M22,Noir,"Humphrey Bogart|Lauren Bacall",Billy Wilder,2023,A noir film that delves into the gritty underworld of crime and passion.
+M23,War,"Brad Pitt|Tom Hanks",Steven Spielberg,2024,A gripping war drama depicting the bravery and sacrifice of soldiers.
+M24,Crime,"Al Pacino|Robert De Niro",Francis Ford Coppola,2023,A crime saga that explores the depths of the mafia underworld.
+M25,Psychological,"Natalie Portman|Christian Bale",Darren Aronofsky,2024,A psychological thriller that questions reality and perception.
+M26,Family,"Julia Roberts|Robin Williams",Chris Columbus,2023,A family-friendly movie that brings laughter and joy to all ages.
+M27,Animation,"Voices of Kristen Bell|Idina Menzel",Jennifer Lee,2024,"An animated adventure filled with magic|music|and heart."
+M28,Sci-Fi,"Chris Pratt|Zoe Saldana",James Gunn,2023,A sci-fi epic that takes you to the far reaches of the galaxy.
+M29,Drama,"Meryl Streep|Tom Hanks",Steven Soderbergh,2024,A powerful drama that captures the human spirit in times of crisis.
+M30,Thriller,"Matt Damon|Emily Blunt",Doug Liman,2023,A thriller that races against time to uncover a global conspiracy.
+M31,Comedy,"Will Ferrell|Amy Poehler",Adam McKay,2024,A comedy that brings non-stop laughter with its witty and clever humor.
+M32,Action,"Vin Diesel|Michelle Rodriguez",Justin Lin,2023,High-octane action that keeps you thrilled from start to finish.
+M33,Romance,"Keira Knightley|Matthew Macfadyen",Joe Wright,2024,A timeless romance that redefines love and devotion.
+M34,Horror,"Sarah Paulson|Evan Peters",Ryan Murphy,2023,A horror story that blurs the line between reality and nightmare.
+M35,Mystery,"Benedict Cumberbatch|Keira Knightley",Morten Tyldum,2024,A mystery that unfolds the secrets of a hidden past.
+M36,Fantasy,"Ian McKellen|Martin Freeman",Peter Jackson,2023,A fantastical journey through mythical lands and legendary quests.
+M37,Biography,"Cate Blanchett|Rooney Mara",Todd Haynes,2024,A biographical film that tells the story of an iconic figure's challenges and triumphs.
+M38,Documentary,Narrated by David Attenborough,Louie Psihoyos,2023,A documentary that reveals the beauty and fragility of our planet.
+M39,Musical,"Lady Gaga|Bradley Cooper",Bill Condon,2024,A musical that captures the hearts of audiences with its powerful storytelling.
+M40,Adventure,"Harrison Ford|Sean Connery",Steven Spielberg,2023,An adventure that revives the legends of old in a modern quest.
+M41,Western,"Sam Elliott|Jeff Bridges",Coen Brothers,2024,A western that brings a new perspective to the tales of the wild west.
+M42,Noir,"Russell Crowe|Guy Pearce",Curtis Hanson,2023,A noir that navigates through the shadows of crime and morality.
+M43,War,"Jeremy Renner|Anthony Mackie",Kathryn Bigelow,2024,A war film that portrays the harsh realities faced by soldiers.
+M44,Crime,"Johnny Depp|Joe Pesci",Brian De Palma,2023,A crime film that dives deep into the lives of those on both sides of the law.
+M45,Psychological,"Jake Gyllenhaal|Toni Collette",David Fincher,2024,A psychological drama that keeps you guessing until the very end.
+M46,Family,"Steve Carell|Tina Fey",Shawn Levy,2023,A family movie that celebrates the quirks and chaos of family life.
+M47,Animation,"Voices of Ellen DeGeneres|Albert Brooks",Andrew Stanton,2024,An animated tale that explores the depths of the ocean and the bonds of family.
+M48,Sci-Fi,"Keanu Reeves|Carrie-Anne Moss",Lana Wachowski,2023,A sci-fi thriller that challenges the boundaries of technology and humanity.
+M49,Drama,"Nicole Kidman|Russell Crowe",Baz Luhrmann,2024,A drama that delves into the complexities of relationships and ambition.
+M50,Thriller,"Liam Neeson|Julianne Moore",Jaume Collet-Serra,2023,A high-stakes thriller that unravels a web of intrigue and danger.
+M51,Comedy,"Seth Rogen|Charlize Theron",Judd Apatow,2024,A laugh-out-loud comedy about politics and unexpected romance.
+M52,Action,"Jason Statham|Idris Elba",David Leitch,2023,A high-speed action thriller with intense fight sequences and car chases.
+M53,Romance,"Emma Watson|Dan Stevens",Bill Condon,2024,A beautiful story of love that blossoms in the most unexpected places.
+M54,Horror,"Jamie Lee Curtis|Judy Greer",David Gordon Green,2023,A terrifying horror sequel that brings back the original scream queen.
+M55,Mystery,"Robert Downey Jr.|Mark Ruffalo",Guy Ritchie,2024,A mystery that unravels a series of cryptic puzzles and secrets.
+M56,Fantasy,"Angelina Jolie|Elle Fanning",Joachim Rønning,2023,"A fantastical tale of magic|curses|and the power of true love."
+M57,Biography,"Will Smith|Taraji P. Henson",Reinaldo Marcus Green,2024,The compelling life story of a sports legend and his journey to greatness.
+M58,Documentary,Narrated by Sigourney Weaver,Davis Guggenheim,2023,An eye-opening documentary about the impact of technology on society.
+M59,Musical,"Lin-Manuel Miranda|Phillipa Soo",Thomas Kail,2024,"A vibrant musical that celebrates culture|history|and the human spirit."
+M60,Adventure,"Chris Pine|Gal Gadot",Patty Jenkins,2023,An adventurous quest that uncovers ancient secrets and hidden treasures.
+M61,Western,"Kurt Russell|Val Kilmer",George P. Cosmatos,2024,A gritty western that revisits the tales of legendary gunslingers.
+M62,Noir,"Eva Green|Josh Brolin",Frank Miller,2023,A stylish noir that captures the essence of classic detective stories.
+M63,War,"Mark Wahlberg|Eric Bana",Peter Berg,2024,A war drama that showcases the heroism and sacrifice of soldiers in combat.
+M64,Crime,"Denzel Washington|Ethan Hawke",Antoine Fuqua,2023,A crime thriller that explores the moral dilemmas faced by law enforcement.
+M65,Psychological,"Jodie Foster|Anthony Hopkins",Jonathan Demme,2024,A psychological horror that delves into the mind of a brilliant psychopath.
+M66,Family,"Drew Barrymore|Adam Sandler",Frank Coraci,2023,A family comedy that brings together two unlikely families on a tropical vacation.
+M67,Animation,"Voices of Auli'i Cravalho|Dwayne Johnson",Ron Clements,2024,An animated journey across the ocean filled with myth and legend.
+M68,Sci-Fi,"Sigourney Weaver|Sam Worthington",James Cameron,2023,A sci-fi adventure that returns to a distant planet and its alien inhabitants.
+M69,Drama,"Bradley Cooper|Lady Gaga",Bradley Cooper,2024,A drama that explores the highs and lows of fame and fortune.
+M70,Thriller,"Sandra Bullock|Cate Blanchett",Gary Ross,2023,A heist thriller that assembles an all-female crew for the ultimate score.
+M71,Comedy,"Melissa McCarthy|Kristen Wiig",Paul Feig,2024,A comedy about a group of friends who start a business that's out of this world.
+M72,Action,"Arnold Schwarzenegger|Linda Hamilton",Tim Miller,2023,An action-packed return to a classic franchise with new twists and turns.
+M73,Romance,"Julia Roberts|Richard Gere",Garry Marshall,2024,A romantic comedy that rekindles a love story from the past.
+M74,Horror,"Neve Campbell|Courteney Cox",Wes Craven,2023,A horror revival that brings a new terror to the iconic slasher series.
+M75,Mystery,"Kenneth Branagh|Penélope Cruz",Kenneth Branagh,2024,A mystery aboard a luxurious train where everyone's a suspect.
+M76,Fantasy,"Johnny Depp|Helena Bonham Carter",Tim Burton,2023,A dark fantasy that weaves a tale of magic and the macabre.
+M77,Biography,"Margot Robbie|Saoirse Ronan",Josie Rourke,2024,A biographical drama about the rivalry between two powerful queens.
+M78,Documentary,Narrated by Benedict Cumberbatch,Werner Herzog,2023,A documentary that explores the mysteries of the deep sea.
+M79,Musical,"Zac Efron|Vanessa Hudgens",Kenny Ortega,2024,A musical reunion that brings back the songs and dances of a beloved franchise.
+M80,Adventure,"Tom Cruise|Henry Cavill",Christopher McQuarrie,2023,An action-adventure that pushes the limits of espionage and danger.
+M81,Western,"Jeff Bridges|Chris Pine",David Mackenzie,2024,A modern western that tells the story of two brothers on the wrong side of the law.
+M82,Noir,"Kate Winslet|Leonardo DiCaprio",Sam Mendes,2023,A noir romance that unfolds amidst the backdrop of 1950s America.
+M83,War,"Tom Hardy|Cillian Murphy",Christopher Nolan,2024,A war epic that captures the intensity and drama of a historic battle.
+M84,Crime,"Sean Penn|Josh Brolin",Ruben Fleischer,2023,A crime drama set in the gritty streets of Los Angeles during the 1940s.
+M85,Psychological,"Edward Norton|Brad Pitt",David Fincher,2024,A psychological thriller that questions identity and reality.
+?,Family,"Ben Stiller|Owen Wilson",Shawn Levy,2023,A family adventure that brings museum exhibits to life in an epic showdown.
+M86,Family,"Ben Stiller|Owen Wilson",Shawn Levy,2023,A family adventure that brings museum exhibits to life in an epic showdown.
+M87,Animation,"Voices of John C. Reilly|Sarah Silverman",Rich Moore,2024,An animated sequel that explores new worlds and virtual adventures.
+?,Drama,"George Clooney|Julia Roberts",Steven Soderbergh,2024,A drama that examines the personal and professional lives of TV journalists.
+M88,Sci-Fi,"Hugh Jackman|Rachel Weisz",Darren Aronofsky,2023,A sci-fi drama that spans time and space to tell a story of eternal love.
+M89,Drama,"George Clooney|Julia Roberts",Steven Soderbergh,2024,A drama that examines the personal and professional lives of TV journalists.
+M90,Thriller,"Charlize Theron|James McAvoy",David Leitch,2023,A spy thriller that takes you through the underground world of espionage.
+M91,Comedy,"Jonah Hill|Channing Tatum",Phil Lord,2024,A buddy comedy that goes undercover in the most unexpected places.
+M92,Action,"Sylvester Stallone|Jason Statham",Simon West,2023,An action ensemble that brings together the toughest mercenaries for a mission.
+M93,Romance,"Hugh Grant|Colin Firth",Sharon Maguire,2024,A romantic comedy that navigates the trials of love and friendship.
+M94,Horror,"Tony Todd|Virginia Madsen",Bernard Rose,2023,A horror legend returns to haunt the streets of Chicago once again.
+M95,Mystery,"Emily Blunt|Rebecca Ferguson",Tate Taylor,2024,A mystery that follows the disappearance of a woman and the secrets uncovered.
+M96,Fantasy,"Orlando Bloom|Ian McKellen",Peter Jackson,2023,"A fantasy epic that returns to a world of elves|dwarves|and epic battles."
+M97,Biography,"Christian Bale|Amy Adams",Adam McKay,2024,The story of a political figure who changed the course of history.
+M98,Documentary,Narrated by Leonardo DiCaprio,Louie Psihoyos,2023,A documentary that raises awareness about environmental issues and conservation.
+M99,Musical,"Anna Kendrick|Jeremy Jordan",Richard LaGravenese,2024,A musical drama that tells the story of a relationship through song.
+M100,Adventure,"Nicolas Cage|Diane Kruger",Jon Turteltaub,2023,An adventure that unravels the secrets of historical treasures.
+M94,Horror,"Tony Todd|Virginia Madsen",Bernard Rose,2023,A horror legend returns to haunt the streets of Chicago once again.
+M95,Mystery,"Emily Blunt|Rebecca Ferguson",Tate Taylor,2024,A mystery that follows the disappearance of a woman and the secrets uncovered.
+M96,Fantasy,"Orlando Bloom|Ian McKellen",Peter Jackson,2023,"A fantasy epic that returns to a world of elves|dwarves|and epic battles."
+M97,Biography,"Christian Bale|Amy Adams",Adam McKay,2024,The story of a political figure who changed the course of history.
+M98,Documentary,Narrated by Leonardo DiCaprio,Louie Psihoyos,2023,A documentary that raises awareness about environmental issues and conservation.
+M99,Musical,"Anna Kendrick|Jeremy Jordan",Richard LaGravenese,2024,A musical drama that tells the story of a relationship through song.
+M100,Adventure,"Nicolas Cage|Diane Kruger",Jon Turteltaub,2023,An adventure that unravels the secrets of historical treasures.

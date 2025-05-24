@@ -5,9 +5,9 @@ spark = SparkSession.builder.getOrCreate()
 sc = spark.sparkContext
 
 # loading datasets from the hdfs into respective rdds
-UserRDD = sc.textFile("./Requirements/PySpark/User_Data.csv")
-ContentRDD = sc.textFile("./Requirements/PySpark/Content_Data.csv")
-EngagementRDD = sc.textFile("./Requirements/PySpark/Engagement_Data.csv")
+UserRDD = sc.textFile("./Datasets/User_Data.csv")
+ContentRDD = sc.textFile("./Datasets/Content_Data.csv")
+EngagementRDD = sc.textFile("./Datasets/Engagement_Data.csv")
 
 # fetching five records excluding header from the rdds
 user_five_records = UserRDD.take(6)
