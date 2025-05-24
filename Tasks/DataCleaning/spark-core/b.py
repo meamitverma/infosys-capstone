@@ -17,19 +17,16 @@ def filter_and_sort(rdd, header, idxs=[0]):
     data = rdd.filter(lambda line : line != header) # removes header
     filtered_data = data.filter(lambda row : isValid(row, idxs)) # removes row with "?" 
     distinct_data = filtered_data.distinct() # remove duplicate records
-    
-    # sort the scattered data based on userid or showid
-    sorted_data = distinct_data.sortBy(lambda data : data.split(",")[0]) 
 
-    return sorted_data
+    return distinct_data
 
-def addHeader(raw_rdd, filtered_rdd):
-    return sc.parallelize(raw_rdd.take(1)).union(filtered_rdd)
+def addHeader(header, rdd):
+    return sc.parallelize([header]).union(rdd)
 
 # loading datasets from the hdfs into respective rdds
-UserRDD = sc.textFile("./Datasets/User_Data.csv")
-ContentRDD = sc.textFile("./Datasets/Content_Data.csv")
-EngagementRDD = sc.textFile("./Datasets/Engagement_Data.csv")
+UserRDD = sc.textFile("./datasets/User_Data.csv")
+ContentRDD = sc.textFile("./datasets/Content_Data.csv")
+EngagementRDD = sc.textFile("./datasets/Engagement_Data.csv")
 
 # headers
 user_header = UserRDD.first()
@@ -43,9 +40,9 @@ filtered_content = filter_and_sort(ContentRDD, content_header)
 filtered_engagement = filter_and_sort(EngagementRDD, engagement_header, [0, 1])
 
 # add headers
-user_data = addHeader(UserRDD,filtered_user)
-content_data = addHeader(ContentRDD, filtered_content)
-engagement_data = addHeader(EngagementRDD, filtered_engagement)
+user_data = addHeader(user_header,filtered_user)
+content_data = addHeader(content_header, filtered_content)
+engagement_data = addHeader(engagement_header, filtered_engagement)
 
 # display the final output
 print("-----UserData-----")
