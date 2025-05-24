@@ -47,6 +47,7 @@ user_data = addHeader(UserRDD,filtered_user)
 content_data = addHeader(ContentRDD, filtered_content)
 engagement_data = addHeader(EngagementRDD, filtered_engagement)
 
+# display the final output
 print("-----UserData-----")
 for data in user_data.collect():
     print(data)
