@@ -14,5 +14,5 @@ locDF = filteredDF.groupBy('Location').agg(count('UserID').alias('SubscriberCoun
 locDF.show()
 
 # saving as parquet
-output_path = './ouput/basic/locwithmaxusers.parquet'
+output_path = './output/basic/locwithmaxusers.parquet'
 locDF.write.mode('overwrite').parquet(output_path)

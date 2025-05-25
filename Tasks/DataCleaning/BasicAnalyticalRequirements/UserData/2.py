@@ -18,6 +18,6 @@ maxUserDF.show()
 minUserDF.show()
 
 # saving as parquet
-output_path = './ouput/basic/'
+output_path = './output/basic/'
 maxUserDF.write.mode('overwrite').parquet(output_path+'subscriptionwithmaxuser.parquet')
 minUserDF.write.mode('overwrite').parquet(output_path+'subscriptionwithminuser.parquet')
