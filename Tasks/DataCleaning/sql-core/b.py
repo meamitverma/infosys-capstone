@@ -5,7 +5,7 @@ from pyspark.sql.functions import split, col, explode
 spark = SparkSession.builder.getOrCreate()
 
 # create dataframe
-user_df = spark.read.csv('./datasets/UserRDD', schema="UserID string,Age int,Location string,Subscription string,WatchHistory string",inferSchema=True, header=False)
+user_df = spark.read.csv('./datasets/UserRDD.csv', schema="UserID string,Age int,Location string,Subscription string,WatchHistory string",inferSchema=True, header=False)
 
 # split
 user_df_split = user_df.withColumn("WatchHistoryArray", split(col("WatchHistory"), '\|')).withColumn("Exploded", explode(col("WatchHistoryArray")) )
