@@ -15,5 +15,5 @@ showDF = aggDF.orderBy(desc('AverageCompletion')).limit(1)
 showDF.show()
 
 # saving as parquet
-output_path = './output/basic/showWithMaximumCompletionPercent'
+output_path = './output/basic/showWithMaximumCompletionPercent.parquet'
 showDF.write.mode('overwrite').parquet(output_path)
