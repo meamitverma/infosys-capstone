@@ -7,13 +7,6 @@ spark = SparkSession.builder.getOrCreate()
 # creating dataframe
 contentDF = spark.read.parquet('./datasets/ContentData.parquet')
 
-
-# user_df_split = user_df.withColumn("WatchHistoryArray", split(col("WatchHistory"), '\|')).withColumn("Exploded", explode(col("WatchHistoryArray")) )
-# user_watch_df = user_df_split.withColumn("ShowID", split(col("Exploded"), ";").getItem(0)) \
-#                         .withColumn("Timestamp", split(col("Exploded"), ";").getItem(1)) \
-#                         .withColumn("Rating", split(col("Exploded"), ";").getItem(2)) \
-#                         .select("UserID", "Age", "Location", "Subscription", "ShowID", "Timestamp", "Rating")
-
 # splitted df by actor
 splitDF = contentDF.withColumn('ActorsArray', split(col('Actors'),'\|')) \
     .withColumn('Actor', explode(col('ActorsArray')))
