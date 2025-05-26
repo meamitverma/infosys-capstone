@@ -18,5 +18,5 @@ ratedLocationDF = aggDF.orderBy(desc('AverageRating')).limit(1)
 ratedLocationDF.show()
 
 # save output as parquet
-ouptut_path = './output/basic/locationWithMaxAverageRating.parquet'
-ratedLocationDF.write.mode('overwrite').parquet(ouptut_path)
+outptut_path = './output/basic/locationWithMaxAverageRating.parquet'
+ratedLocationDF.write.mode('overwrite').parquet(outptut_path)

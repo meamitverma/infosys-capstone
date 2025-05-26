@@ -15,5 +15,5 @@ showDF = aggDF.orderBy(desc('WatchCount')).limit(1)
 showDF.show()
 
 # save output as parquet
-ouptut_path = './output/basic/showWithMaxWatchCount.parquet'
+output_path = './output/basic/showWithMaxWatchCount.parquet'
 showDF.write.mode('overwrite').parquet(ouptut_path)
