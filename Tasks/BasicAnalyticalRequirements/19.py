@@ -16,4 +16,4 @@ filteredDF.show()
 
 # saving as parquet
 output_path = './output/basic/userWithShowDuration.parquet'
-# userDF.write.mode('overwrite').parquet(output_path)
+filteredDF.write.mode('overwrite').parquet(output_path)
