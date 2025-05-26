@@ -1,5 +1,5 @@
 UserID,Age,Location,Subscription,WatchHistory
-U001,25,"New York","Standard",M1;2004-12-07;2|M3;2004-12-07;4|M5;2004-12-07;3
+U001,25,"New York","Standard",;M12004-12-07;2|M3;2004-12-07;4|M5;2004-12-07;3
 U002,32,"Los Angeles","Premium",M2;2012-05-06;4|M4;2012-05-06;3|M6;2012-05-06;5
 U003,40,"Chicago","Standard",M7;2010-03-26;5|M1;2010-03-26;4|M9;2010-03-26;2
 U004,18,"Seattle","Free",M8;2002-04-07;4|M2;2002-04-07;5|M5;2002-04-07;2
