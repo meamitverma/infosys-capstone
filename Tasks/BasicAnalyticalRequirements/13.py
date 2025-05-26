@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import count, desc
+from pyspark.sql.functions import desc, avg, max
 
 spark = SparkSession.builder.getOrCreate()
 
@@ -15,7 +15,12 @@ filtered_engagement = engagementDF.select('UserID', 'ShowID')
 
 # joined dataframe
 userEngagementContent = filtered_user.join(filtered_engagement, on="UserID", how="inner")
-userEngagementContent.show()
+joinedDF = userEngagementContent.join(filtered_content, on="ShowID", how="inner")
 
-# joinedDF.show()
+# maximum rating
+maxDF = joinedDF.groupBy('Genre').agg(max('Rating').alias('MaxRating')).orderBy(desc('MaxRating')).limit(1)
+maxDF.show()
 
+# highest average rating
+maxAvgDF = joinedDF.groupBy('Genre').agg(avg('Rating').alias('AverageRating')).orderBy(desc('AverageRating')).limit(1)
+maxAvgDF.show()
