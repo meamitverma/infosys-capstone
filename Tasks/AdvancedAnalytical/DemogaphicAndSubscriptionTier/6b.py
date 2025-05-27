@@ -1,4 +1,5 @@
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import max, col,count
 
 # create spark session
 spark = SparkSession.builder.getOrCreate()
@@ -11,17 +12,17 @@ contentDF = spark.read.parquet('./datasets/ContentData.parquet')
 userDF.createOrReplaceTempView('users')
 contentDF.createOrReplaceTempView('content')
 
-# average rating by age group
+# comedymovie names watched by users
 query = """
-    SELECT u.Age, AVG(u.Rating) AS AvgRating
+    SELECT DISTINCT(u.showid), c.genre
     FROM users u
-    WHERE age > 45
-    GROUP BY u.Age
+    JOIN content c ON u.showid = c.showid
+    WHERE c.genre = 'Comedy'
 """
-joinedDF = spark.sql(query)
-joinedDF.show()
+sqlDF = spark.sql(query)
+sqlDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/averageRatingByAge.parquet"
-joinedDF.write.mode('overwrite').parquet(output_path)
+output_path = "./output/advanced/demographicAndSubscriptionTier/comedyMovieWatched.parquet"
+sqlDF.write.mode('overwrite').parquet(output_path)

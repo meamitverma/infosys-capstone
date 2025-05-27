@@ -9,7 +9,7 @@ userDF = spark.read.parquet('./datasets/UserWatchData.parquet')
 # create temp view
 userDF.createOrReplaceTempView('users')
 
-# genre popular in age group 18 to 30
+# shows with premium subscription
 query = """
     SELECT u.ShowID, u.Subscription
     FROM users u

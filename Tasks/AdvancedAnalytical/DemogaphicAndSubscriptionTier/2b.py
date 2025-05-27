@@ -11,7 +11,7 @@ contentDF = spark.read.parquet('./datasets/ContentData.parquet')
 userDF.createOrReplaceTempView('users')
 contentDF.createOrReplaceTempView('content')
 
-# genre popular in age group 18 to 30
+# popular movie type
 query = """
     SELECT c.Genre, COUNT(c.Genre) As MovieCount
     FROM content c
