@@ -13,12 +13,12 @@ contentDF.createOrReplaceTempView('content')
 
 # genre popular in age group 18 to 30
 query = """
-    SELECT c.Genre, count(Genre) AS Count
-    FROM users u
-    JOIN content c ON u.ShowID = c.ShowID
-    WHERE age BETWEEN 18 AND 30
+    SELECT c.Genre, COUNT(c.Genre) As MovieCount
+    FROM content c
+    JOIN users u ON c.ShowID = u.ShowID
+    WHERE u.Location = 'New York'
     GROUP BY c.Genre
-    ORDER BY Count DESC
+    ORDER BY MovieCount DESC
     LIMIT 1
 """
 joinedDF = spark.sql(query)
@@ -26,5 +26,5 @@ joinedDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/popularGenreInAgeGroup.parquet"
+output_path = "./output/advanced/demographicAndSubscriptionTier/popularMovieType.parquet"
 joinedDF.write.mode('overwrite').parquet(output_path)

@@ -16,7 +16,7 @@ engagementDF.createOrReplaceTempView('engagements')
 # join user, content and engagement
 # engagementWatchTime = spark.sql()
 query = """
-    SELECT u.UserID, c.Genre, AVG(u.Rating), SUM(DATEDIFF(hour, e.PlaybackStarted, e.PlaybackStopped)) AS TotalWatchTimeInHours
+    SELECT u.UserID, c.Genre, AVG(u.Rating) AS AverageRating, SUM(DATEDIFF(e.PlaybackStopped, e.PlaybackStarted)) AS TotalWatchTime
     FROM engagements e
     JOIN users u ON e.UserID = u.UserID
     JOIN content c ON e.ShowID = c.ShowID

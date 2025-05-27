@@ -14,7 +14,7 @@ optimizedDF = contentDF.join(broadcast(userDF), 'ShowID')
 # create temp view for joineddf
 optimizedDF.createOrReplaceTempView("contentWatch")
 
-# average rating for movie with specific director
+# query
 query = """
     SELECT * FROM contentWatch
 """
