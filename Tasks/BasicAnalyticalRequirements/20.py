@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import avg, col, asc
+from pyspark.sql.functions import avg, min, col
 
 spark = SparkSession.builder.getOrCreate()
 
@@ -10,11 +10,9 @@ engagementDF = spark.read.parquet('./datasets/EngagementData.parquet')
 # grouped df with show and average completion percent
 aggDF = engagementDF.groupBy('ShowID').agg(avg('CompletionPercent').alias('AverageCompletionPercent'))
 
-# ordered df 
-orderedDF = aggDF.orderBy(asc('AverageCompletionPercent'))
-
 # show with lowest average completion rate
-showDF = orderedDF.limit(1)
+lowestCompletion = aggDF.agg(min('AverageCompletionRate').alias('LowestCompletion')).first()[0]
+showDF = aggDF.filter(col('AverageCompletionRate') == lowestCompletion)
 showDF.show()
 
 # saving as parquet

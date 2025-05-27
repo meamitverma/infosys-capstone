@@ -1,8 +1,7 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import avg, desc
+from pyspark.sql.functions import avg, col
 
 spark = SparkSession.builder.getOrCreate()
-
 
 # creating dataframe
 engagementDF = spark.read.parquet('./datasets/EngagementData.parquet')
@@ -11,7 +10,9 @@ engagementDF = spark.read.parquet('./datasets/EngagementData.parquet')
 aggDF = engagementDF.groupBy('ShowID').agg(avg('CompletionPercent').alias('AverageCompletion'))
 
 # show with maximum completion rate
-showDF = aggDF.orderBy(desc('AverageCompletion')).limit(1)
+maxCompletionRate = aggDF.agg(max('AverageCompletion').alias('MaxAvgCompletionRate')).first()[0]
+
+showDF = aggDF.filter(col('AverageCompletion') == maxCompletionRate)
 showDF.show()
 
 # saving as parquet

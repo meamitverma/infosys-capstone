@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import avg,desc
+from pyspark.sql.functions import avg, max, col
 
 spark = SparkSession.builder.getOrCreate()
 
@@ -9,9 +9,11 @@ userDF = spark.read.parquet('./datasets/UserWatchData.parquet')
 
 # paired df of showid and average rating
 aggDF = userDF.groupBy('ShowID').agg(avg('Rating').alias('AverageRating'))
+aggDF.show()
 
-# show with highest avg rating
-ratedShowDF = aggDF.orderBy(desc('AverageRating')).limit(1)
+# shows with highest avg rating
+maxRating = aggDF.agg(max('AverageRating').alias('MaxRating')).first()[0]
+ratedShowDF = aggDF.filter(col('AverageRating') == maxRating)
 ratedShowDF.show()
 
 # save output as parquet

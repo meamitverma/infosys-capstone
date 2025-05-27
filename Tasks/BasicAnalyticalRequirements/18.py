@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import avg, to_date, datediff, desc
+from pyspark.sql.functions import avg, to_date, datediff, max, col
 
 spark = SparkSession.builder.getOrCreate()
 
@@ -13,7 +13,9 @@ diffDF = engagementDF \
 .withColumn('Duration', datediff('PlaybackStopped', 'PlaybackStarted'))
 
 # user with longest playtime
-userDF = diffDF.groupBy('UserID').agg(avg('Duration').alias('DurationInDays')).orderBy(desc('DurationInDays')).limit(1)
+aggDF = diffDF.groupBy('UserID').agg(avg('Duration').alias('DurationInDays'))
+longestPlaytime = aggDF.agg(max('DurationInDays').alias('LongestPlaytime')).first()[0]
+userDF = aggDF.filter(col('DurationInDays') == longestPlaytime)
 userDF.show()
 
 

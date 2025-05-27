@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import count, desc, asc
+from pyspark.sql.functions import count, col, max, min
 
 spark = SparkSession.builder.getOrCreate()
 
@@ -11,8 +11,11 @@ contentDF = spark.read.parquet('./datasets/ContentData.parquet')
 aggDF = contentDF.groupBy('Director').agg(count('*').alias('ShowCount'))
 
 # max show and min show
-maxDirectorDF = aggDF.orderBy(desc('ShowCount')).limit(1)
-minDirectorDF = aggDF.orderBy(asc('ShowCount')).limit(1)
+maxShowCount = aggDF.agg(max('ShowCount').alias('MaxShowCount')).first()[0]
+minShowCount = aggDF.agg(min('ShowCount').alias('MinShowCount')).first()[0]
+
+maxDirectorDF = aggDF.filter(col('ShowCount') == maxShowCount)
+minDirectorDF = aggDF.filter(col('ShowCount') == minShowCount)
 
 maxDirectorDF.show()
 minDirectorDF.show()

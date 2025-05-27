@@ -8,7 +8,7 @@ spark = SparkSession.builder.getOrCreate()
 userDF = spark.read.parquet('./datasets/UserWatchData.parquet')
 
 # unique and filtered column
-uniqueDF = userDF.select('UserID', 'Location', 'Rating').distinct()
+uniqueDF = userDF.select('UserID', 'Location', 'Rating')
 
 # paired df of location and average rating
 aggDF = uniqueDF.groupBy('Location').agg(avg('Rating').alias('AverageRating'))

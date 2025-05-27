@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import count, desc
+from pyspark.sql.functions import count, col, max
 
 spark = SparkSession.builder.getOrCreate()
 
@@ -11,9 +11,10 @@ userDF = spark.read.parquet('./datasets/UserWatchData.parquet')
 aggDF = userDF.groupBy('ShowID').agg(count('UserID').alias('WatchCount'))
 
 # showid with max number of count
-showDF = aggDF.orderBy(desc('WatchCount')).limit(1)
+maxCount = aggDF.agg(max('WatchCount').alias('MaxWatchCount')).first()[0]
+showDF = aggDF.filter(col('WatchCount') == maxCount)
 showDF.show()
 
 # save output as parquet
 output_path = './output/basic/showWithMaxWatchCount.parquet'
-showDF.write.mode('overwrite').parquet(ouptut_path)
+showDF.write.mode('overwrite').parquet(output_path)

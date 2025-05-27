@@ -1,5 +1,5 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import split, col, explode, count, desc
+from pyspark.sql.functions import split, col, explode, count, max
 
 spark = SparkSession.builder.getOrCreate()
 
@@ -16,7 +16,10 @@ filteredDF = splitDF.select('Actor')
 
 # count of show actor wise
 aggDF = filteredDF.groupBy('Actor').agg(count('*').alias('ShowCount'))
-popularActor = aggDF.orderBy(desc('ShowCount')).limit(1)
+
+# max show count
+maxShowCount = aggDF.agg(max('ShowCount').alias('MaxShowCount')).first()[0]
+popularActor = aggDF.filter(col('ShowCount') == maxShowCount)
 popularActor.show()
 
 # save output as parquet
