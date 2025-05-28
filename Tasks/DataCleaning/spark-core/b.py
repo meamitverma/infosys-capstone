@@ -33,14 +33,17 @@ filtered_user = filterRDD(UserRDD, user_header)
 filtered_content = filterRDD(ContentRDD, content_header)
 filtered_engagement = filterRDD(EngagementRDD, engagement_header, [0, 1])
 
+# fixing showids for userrdd after removing unwanted rows
+filtered_user = filtered_user.map(lambda line : __import__('re').sub(r'\dM','M',line)).distinct()
+
 print("-----UserData-----")
 for data in filtered_user.collect():
     print(data)
 
-print("-----ContentData-----")
-for data in filtered_content.collect():
-    print(data)
+# print("-----ContentData-----")
+# for data in filtered_content.collect():
+#     print(data)
 
-print("-----EngagementData-----")
-for data in filtered_engagement.collect():
-    print(data)
+# print("-----EngagementData-----")
+# for data in filtered_engagement.collect():
+#     print(data)
