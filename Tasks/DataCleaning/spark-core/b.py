@@ -40,10 +40,10 @@ print("-----UserData-----")
 for data in filtered_user.collect():
     print(data)
 
-# print("-----ContentData-----")
-# for data in filtered_content.collect():
-#     print(data)
+print("-----ContentData-----")
+for data in filtered_content.collect():
+    print(data)
 
-# print("-----EngagementData-----")
-# for data in filtered_engagement.collect():
-#     print(data)
+print("-----EngagementData-----")
+for data in filtered_engagement.collect():
+    print(data)
