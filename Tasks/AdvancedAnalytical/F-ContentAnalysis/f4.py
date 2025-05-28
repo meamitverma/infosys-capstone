@@ -5,19 +5,24 @@ spark = SparkSession.builder.getOrCreate()
 
 # load dataset to dataframe
 userDF = spark.read.parquet('./datasets/UserWatchData.parquet')
+contentDF = spark.read.parquet('./datasets/ContentData.parquet')
 
 # create temp view
 userDF.createOrReplaceTempView('users')
+contentDF.createOrReplaceTempView('content')
 
 # joined table
 query = """
-    WITH userGenreRank AS (
-        SELECT UserID, Genre, CAST(Rating aS INT) AS Rating, RANK() OVER (PARTITION BY UserID ORDER BY Rating DESC) AS GenreRanking FROM userContent) select UserID, Genre AS favGenre, Rating from userGenreRank where GenreRanking = 1
+    SELECT u.userid, c.genre, COUNT(*) AS movieCount
+    FROM users u
+    JOIN content c ON u.showid = c.showid
+    GROUP BY u.userid, c.genre
+    ORDER BY movieCount ASC
 """
 
 sqlDF = spark.sql(query)
 sqlDF.show()
 
 # save the output as parquet
-output_path = "./output/advanced/content-analysis/showsWithHighestAverageRating.parquet"
+output_path = "./output/advanced/content-analysis/usersFavoriteGenre.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)
