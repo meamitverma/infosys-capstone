@@ -9,14 +9,12 @@ usersDF = spark.read.parquet('./datasets/UserWatchData.parquet')
 
 # create temp view
 engagementDF.createOrReplaceTempView('engagements')
-usersDF.createOrReplaceTempView('users')
 
 # watch history 
 query = """
-    SELECT u.userID, AVG(DATEDIFF(TO_DATE(e.playbackStopped), TO_DATE(e.playbackStarted))) AS averageWatchTime, AVG(completionPercent) AS averageCompletionPercent
-    FROM users u
-    JOIN engagements e ON u.userID = e.userID
-    GROUP BY u.userID
+    SELECT userID, AVG(DATEDIFF(TO_DATE(e.playbackStopped), TO_DATE(e.playbackStarted))) AS averageWatchTime, AVG(completionPercent) AS averageCompletionPercent
+    FROM engagements e
+    GROUP BY e.userID
 """
 
 sqlDF = spark.sql(query)

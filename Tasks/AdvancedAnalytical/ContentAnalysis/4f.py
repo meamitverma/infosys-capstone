@@ -1,0 +1,25 @@
+from pyspark.sql import SparkSession
+
+# creat sparksession
+spark = SparkSession.builder.getOrCreate()
+
+# load dataset to dataframe
+contentDF = spark.read.parquet('./datasets/ContentData.parquet')
+userDF = spark.read.parquet('./datasets/UserWatchData.parquet')
+
+# create temp view
+userDF.createOrReplaceTempView('users')
+contentDF.createOrReplaceTempView('content')
+
+# joined table
+query = """
+    SELECT userid, genre
+    FROM 
+"""
+
+sqlDF = spark.sql(query)
+sqlDF.show()
+
+# save the output as parquet
+output_path = "./output/advanced/content-analysis/showsWithHighRating.parquet"
+sqlDF.write.mode('overwrite').parquet(output_path)
