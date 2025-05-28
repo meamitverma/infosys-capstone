@@ -13,9 +13,17 @@ contentDF.createOrReplaceTempView('content')
 
 # joined table
 query = """
-    SELECT c.*
+    SELECT DISTINCT c.*
     FROM content c
-    WHERE c.showid NOT IN ( SELECT u.showid FROM users u)
+    WHERE c.genre IN (
+        SELECT DISTINCT c.genre
+        FROM users u
+        JOIN content c ON u.showid = c.showid
+    )
+    AND c.showid NOT IN (
+        SELECT u.showid
+        FROM users u
+    )
 """
 
 sqlDF = spark.sql(query)

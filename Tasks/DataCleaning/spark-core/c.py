@@ -34,7 +34,11 @@ filtered_user = filterRDD(UserRDD, user_header)
 filtered_content = filterRDD(ContentRDD, content_header)
 filtered_engagement = filterRDD(EngagementRDD, engagement_header)
 
+# fixing showids for userrdd after removing unwanted rows
+filtered_user = filtered_user.map(lambda line : __import__('re').sub(r'\dM','M',line)).distinct()
+
 # saving the cleaned
 filtered_user.saveAsTextFile('./datasets/UserRDD.csv')
 filtered_content.saveAsTextFile('./datasets/ContentRDD.csv')
 filtered_engagement.saveAsTextFile('./datasets/EngagementRDD.csv')
+
