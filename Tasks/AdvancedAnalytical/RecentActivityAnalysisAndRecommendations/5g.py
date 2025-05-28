@@ -27,11 +27,11 @@ query1 = """
 
 # 
 query2="""
-    SELECT actor, COUNT(DISTINCT(userid)) AS uniqueUsers
+    SELECT actor, COUNT(DISTINCT userid) AS uniqueUsers
     FROM (
-        SELECT r.userid, c.showid, EXPLODE(SPLIT(c.actors, '\\\\|')) AS actor
+        SELECT r.userid, c.showid, EXPLODE(SPLIT(c.actors, '\\\|')) AS actor
         FROM content c
-        JOIN recentWatchedContent r ON r.showid c.showid
+        JOIN recentWatchedContent r ON r.showid = c.showid
     ) t
     GROUP BY actor
     ORDER BY uniqueUsers DESC
