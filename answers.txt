@@ -1,0 +1,23 @@
+
+F
+Question 3 :
+spark.sql("select ShowID, avg(Rating) as AverageRating from userContent group by ShowID order by AverageRating desc").show()
+
+Question 4 :
+spark.sql("with userGenreRank as (select UserID, Genre, cast(Rating as int) as Rating, Rank() over (partition by UserID order by Rating desc) as GenreRanking from userContent) select UserID, Genre as favGenre, Rating from userGenreRank where GenreRanking = 1").show()
+
+Question 5 :
+spark.sql("with userWatchedGenres as (select UserID, Genre, concat_ws(',',collect_list(ShowID)) as shows from userContent group by UserID, Genre order by length(shows))select userID, ug.Genre, ShowID as SuggestedShow from contentData c join userWatchedGenres ug on c.Genre = ug.Genre and instr(shows,showID) = 0 order by UserID").show()
+
+
+G
+spark.sql("select UserId, collect_list(concat_ws( '|', ShowID , LastDateWatched, Rating)) as WatchHistory from userData group by UserID").show()
+
+Question 2 :
+spark.sql("select UserID, to_date(LastDateWatched,'yyyy-MM-dd') as LastDateWatched from userData order by UserID, LastDateWatched desc").show()
+
+Question 3 :
+spark.sql("select UserID, ShowID, to_date(PlaybackStopped,'yyyy-MM-dd') as LastDateWatched from engagementData order by LastDateWatched desc limit 10").show()
+
+Question 4 :
+spark.sql("with recentlyWatched as (select UserID, ShowID, to_date(PlaybackStopped,'yyyy-MM-dd') as LastDateWatched, Rating from userEngagement order by LastDateWatched desc limit 10)select * from recentlyWatched order by Rating desc").show()

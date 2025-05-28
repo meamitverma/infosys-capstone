@@ -11,8 +11,10 @@ userDF.createOrReplaceTempView('users')
 
 # joined table
 query = """
-    WITH userGenreRank AS (
-        SELECT UserID, Genre, CAST(Rating aS INT) AS Rating, RANK() OVER (PARTITION BY UserID ORDER BY Rating DESC) AS GenreRanking FROM userContent) select UserID, Genre AS favGenre, Rating from userGenreRank where GenreRanking = 1
+    SELECT showID, avg(Rating) as averageRating 
+    FROM users 
+    GROUP BY showid 
+    ORDER BY averageRating DESC
 """
 
 sqlDF = spark.sql(query)
