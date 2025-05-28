@@ -13,7 +13,7 @@ usersDF.createOrReplaceTempView('users')
 
 # watch history 
 query = """
-    SELECT u.userID, AVG(DATEDIFF(e.playbackStopped, e.playbackStarted)) AS averageWatchTime, AVG(completionPercent) AS averageCompletionPercent
+    SELECT u.userID, AVG(DATEDIFF(TO_DATE(e.playbackStopped), TO_DATE(e.playbackStarted))) AS averageWatchTime, AVG(completionPercent) AS averageCompletionPercent
     FROM users u
     JOIN engagements e ON u.userID = e.userID
     GROUP BY u.userID

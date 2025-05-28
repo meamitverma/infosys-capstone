@@ -16,16 +16,16 @@ engagementDF.createOrReplaceTempView('engagements')
 # join user, content and engagement
 # engagementWatchTime = spark.sql()
 query = """
-    SELECT u.UserID, c.Genre, AVG(u.Rating) AS AverageRating, SUM(DATEDIFF(e.PlaybackStopped, e.PlaybackStarted)) AS TotalWatchTime
+    SELECT u.UserID, c.Genre, AVG(u.Rating) AS AverageRating, SUM(DATEDIFF(TO_DATE(e.PlaybackStopped,'yyyy-MM-dd'), TO_DATE(e.PlaybackStarted,'yyyy-MM-dd'))) AS TotalWatchTime
     FROM engagements e
     JOIN users u ON e.UserID = u.UserID
     JOIN content c ON e.ShowID = c.ShowID
     GROUP BY u.UserID, c.Genre
 """
+
 joinedDF = spark.sql(query)
 joinedDF.show()
 
-
-# # save the output as parquet
+# save the output as parquet
 output_path = "./output/advanced/content-genre/avgRatingTotalWatchTimeGroupedWithUserAndGenre.parquet"
 joinedDF.write.mode('overwrite').parquet(output_path)
