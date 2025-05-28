@@ -5,11 +5,9 @@ spark = SparkSession.builder.getOrCreate()
 
 # creating dataframe
 userDF = spark.read.parquet('./datasets/UserWatchData.parquet')
-contentDF = spark.read.parquet('./datasets/ContentData.parquet')
 
 # create temp view
 userDF.createOrReplaceTempView('users')
-contentDF.createOrReplaceTempView('content')
 
 # average rating by age group
 query = """

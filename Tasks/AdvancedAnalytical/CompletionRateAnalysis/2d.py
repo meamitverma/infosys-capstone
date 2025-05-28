@@ -5,11 +5,9 @@ spark = SparkSession.builder.getOrCreate()
 
 # creating dataframe
 engagementDF = spark.read.parquet('./datasets/EngagementData.parquet')
-usersDF = spark.read.parquet('./datasets/UserWatchData.parquet')
 
 # create temp view
 engagementDF.createOrReplaceTempView('engagements')
-usersDF.createOrReplaceTempView('users')
 
 # user with most completed movies
 query = """
@@ -37,5 +35,5 @@ sqlDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/usersWithMostCompleted.parquet"
+output_path = "./output/advanced/demographicAndSubscriptionTier/showsWithIdAndYear.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)
