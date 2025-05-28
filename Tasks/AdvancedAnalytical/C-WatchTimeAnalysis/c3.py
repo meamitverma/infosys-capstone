@@ -40,9 +40,13 @@ query2 = """
         SELECT MIN(watchTime) AS minWatchTime
         FROM watchTime
     )
-    SELECT showid, watchTime
-    FROM watchTime w,  maxWatchTime h, minWatchTime l
-    WHERE w.watchTime = h.maxWatchTime OR w.watchTime = l.minWatchTime
+    SELECT w.showid, w.watchTime
+    FROM watchTime w
+    JOIN maxWatchTime h ON w.watchTime = h.maxWatchTime
+    UNION
+    SELECT w.showid, w.watchTime
+    FROM watchTime w
+    JOIN minWatchTime l ON w.watchTime = l.minWatchTime
 """
 
 sql1DF = spark.sql(query1)
