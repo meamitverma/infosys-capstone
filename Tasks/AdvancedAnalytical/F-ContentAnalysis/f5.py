@@ -5,21 +5,22 @@ spark = SparkSession.builder.getOrCreate()
 
 # load dataset to dataframe
 userDF = spark.read.parquet('./datasets/UserWatchData.parquet')
+contentDF = spark.read.parquet('./datasets/ContentData.parquet')
 
 # create temp view
 userDF.createOrReplaceTempView('users')
+contentDF.createOrReplaceTempView('content')
 
 # joined table
 query = """
-    SELECT showID, avg(Rating) as averageRating 
-    FROM users 
-    GROUP BY showid 
-    ORDER BY averageRating DESC
+    SELECT c.*
+    FROM content c
+    WHERE c.showid NOT IN ( SELECT u.showid FROM users u)
 """
 
 sqlDF = spark.sql(query)
 sqlDF.show()
 
 # save the output as parquet
-output_path = "./output/advanced/content-analysis/showsWithHighestAverageRating.parquet"
+output_path = "./output/advanced/content-analysis/showsWitGenreNotWatched.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)

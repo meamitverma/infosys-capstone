@@ -1,7 +1,0 @@
-
-F
-Question 4 :
-spark.sql("with userGenreRank as (select UserID, Genre, cast(Rating as int) as Rating, Rank() over (partition by UserID order by Rating desc) as GenreRanking from userContent) select UserID, Genre as favGenre, Rating from userGenreRank where GenreRanking = 1").show()
-
-Question 5 :
-spark.sql("with userWatchedGenres as (select UserID, Genre, concat_ws(',',collect_list(ShowID)) as shows from userContent group by UserID, Genre order by length(shows))select userID, ug.Genre, ShowID as SuggestedShow from contentData c join userWatchedGenres ug on c.Genre = ug.Genre and instr(shows,showID) = 0 order by UserID").show()
