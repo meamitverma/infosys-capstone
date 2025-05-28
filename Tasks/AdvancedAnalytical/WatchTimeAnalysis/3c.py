@@ -41,7 +41,7 @@ query2 = """
         FROM watchTime
     )
     SELECT showid, watchTime
-    FROM watchTime w, maxWatchTime h, minWatchTime l
+    FROM watchTime w,  maxWatchTime h, minWatchTime l
     WHERE w.watchTime = h.maxWatchTime OR w.watchTime = l.minWatchTime
 """
 
