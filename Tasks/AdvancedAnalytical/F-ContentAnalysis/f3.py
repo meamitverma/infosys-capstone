@@ -13,14 +13,14 @@ contentDF.createOrReplaceTempView('content')
 
 # shows with high ratings
 query = """
-    SELECT userid, showid, rating
-    FROM users
+    SELECT u.userid, u.rating, c.*
+    FROM users u
+    JOIN content c ON u.showid = c.showid
     WHERE rating = 5
 """
-
 sqlDF = spark.sql(query)
 sqlDF.show()
 
 # save the output as parquet
-output_path = "./output/advanced/content-analysis/showsWithHighRating.parquet"
+output_path = "./output/advanced/F-ContentAnalysis/showsWithHighRating.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)

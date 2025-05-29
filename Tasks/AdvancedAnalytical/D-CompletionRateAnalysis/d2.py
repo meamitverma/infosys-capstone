@@ -15,7 +15,6 @@ query = """
     FROM engagements
     GROUP BY showid
 """
-
 sqlDF = spark.sql(query)
 sqlDF.show()
 
@@ -23,5 +22,5 @@ sqlDF.show()
 repartitionedDF = sqlDF.repartition('showid')
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/showsWithAverageCompletionPercent.parquet"
+output_path = "./output/advanced/D-CompletionRateAnalysis/showsWithAverageCompletionPercent.parquet"
 repartitionedDF.write.mode('overwrite').parquet(output_path)

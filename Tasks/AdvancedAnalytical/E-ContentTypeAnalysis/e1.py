@@ -20,11 +20,10 @@ query = """
     FROM content c
     WHERE c.showid NOT IN (SELECT showid FROM users)
 """
-
 sqlDF = spark.sql(query)
 sqlDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/showNeverWatched.parquet"
+output_path = "./output/advanced/E-ContentTypeAnalysis/showNeverWatched.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)

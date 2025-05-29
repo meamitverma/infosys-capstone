@@ -13,16 +13,19 @@ contentDF.createOrReplaceTempView('content')
 
 # fav genre
 query = """
-    SELECT u.userid, c.genre, COUNT(*) AS movieCount
-    FROM users u
-    JOIN content c ON u.showid = c.showid
-    GROUP BY u.userid, c.genre
-    ORDER BY movieCount ASC
+    WITH genreRank AS (
+        SELECT u.userid, c.genre, CAST(u.rating AS INT) AS rating, RANK() OVER (PARTITION BY u.userid ORDER BY u.rating DESC) AS genreRanking
+        FROM users u
+        JOIN content c ON u.showid = c.showid
+    )
+    SELECT userid, genre, rating
+    FROM genreRank
+    WHERE genreRanking = '1'
+    ORDER BY userid
 """
-
-sqlDF = spark.sql(query)
-sqlDF.show()
+favGenreDF = spark.sql(query)
+favGenreDF.show()
 
 # save the output as parquet
-output_path = "./output/advanced/content-analysis/usersFavoriteGenre.parquet"
-sqlDF.write.mode('overwrite').parquet(output_path)
+output_path = "./output/advanced/F-ContentAnalysis/usersFavoriteGenre.parquet"
+favGenreDF.write.mode('overwrite').parquet(output_path)

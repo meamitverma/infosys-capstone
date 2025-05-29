@@ -31,11 +31,10 @@ query = """
     FROM countUsers c
     JOIN maxCountUsers m ON c.userCount = m.maxUserCount
 """
-
 sqlDF = spark.sql(query)
 sqlDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/usersWithMostCompleted.parquet"
+output_path = "./output/advanced/D-CompletionRateAnalysis/usersWithMostCompleted.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)

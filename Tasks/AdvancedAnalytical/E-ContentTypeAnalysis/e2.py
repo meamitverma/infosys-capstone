@@ -11,7 +11,7 @@ engagementDF = spark.read.parquet('./datasets/EngagementData.parquet')
 contentDF.createOrReplaceTempView('content')
 engagementDF.createOrReplaceTempView('engagement')
 
-# genre
+# higher engagement based on genre
 query1 = """
     SELECT genre, AVG(completionPercent) AS averageCompletionPercent, AVG(DATEDIFF(TO_DATE(playbackStopped), TO_DATE(playbackStarted))) AS averageWatchTime
     FROM content c
@@ -21,7 +21,7 @@ query1 = """
 sql1DF = spark.sql(query1)
 sql1DF.show()
 
-# actor
+# higher engagement based on actor
 query2 = """
     SELECT actor, AVG(completionPercent) AS averageCompletionPercent, AVG(DATEDIFF(TO_DATE(playbackStopped,'yyyy-MM-dd'), TO_DATE(playbackStarted,'yyyy-MM-dd'))) AS averageWatchTime
     FROM (
@@ -35,5 +35,6 @@ sql2DF = spark.sql(query2)
 sql2DF.show()
 
 # save the output as parquet
-output_path = "./output/advanced/content-type-analysis/e2.parquet"
-# joinedDF.write.mode('overwrite').parquet(output_path)
+output_path = "./output/advanced/E-ContentTypeAnalysis/"
+sql1DF.write.mode('overwrite').parquet(output_path + '')
+sql2DF.write.mode('overwrite').parquet(output_path)

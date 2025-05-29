@@ -23,11 +23,11 @@ query = """
     WITH recentlyWatched AS (
         SELECT u.UserID, e.ShowID, TO_DATE(playbackStopped,'yyyy-MM-dd') AS LastDateWatched, Rating 
         FROM engagement e
-        JOIN users u ON engagement.showid = users.showid
+        JOIN users u ON e.showid = u.showid
         ORDER BY LastDateWatched DESC LIMIT 10
-        )
+    )
     SELECT * 
-    FROM users
+    FROM recentlyWatched
     ORDER BY Rating DESC 
     LIMIT 10
 """

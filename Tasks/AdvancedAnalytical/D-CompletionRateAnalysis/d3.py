@@ -16,11 +16,10 @@ query = """
     FROM engagements e
     GROUP BY e.userID
 """
-
 sqlDF = spark.sql(query)
 sqlDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/usersWithAvgWatchTimeAvgCompletionPercent.parquet"
+output_path = "./output/advanced/D-CompletionRateAnalysis/usersWithAvgWatchTimeAvgCompletionPercent.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)

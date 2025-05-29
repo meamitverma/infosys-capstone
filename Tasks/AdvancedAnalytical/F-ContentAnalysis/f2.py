@@ -15,8 +15,7 @@ contentDF.createOrReplaceTempView('content')
 query = """
     SELECT *
     FROM users u
-    JOIN content ON u.showid = c.showid
+    JOIN content c ON u.showid = c.showid
 """
-
 joinedDF = spark.sql(query)
 joinedDF.show()

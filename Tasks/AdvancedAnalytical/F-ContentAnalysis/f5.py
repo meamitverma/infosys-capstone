@@ -26,5 +26,5 @@ sqlDF = spark.sql(query)
 sqlDF.show()
 
 # save the output as parquet
-output_path = "./output/advanced/content-analysis/showsWitGenreNotWatched.parquet"
+output_path = "./output/advanced/F-ContentAnalysis/showsWitGenreNotWatched.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)
