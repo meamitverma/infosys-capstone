@@ -18,7 +18,7 @@ recentContentDF.createOrReplaceTempView('recentWatchedContent')
 engagementDF.createOrReplaceTempView('engagement')
 userDF.createOrReplaceTempView('users')
 
-# 
+# recently watched content with highratings
 query = """
     WITH recentlyWatched AS (
         SELECT u.UserID, e.ShowID, TO_DATE(playbackStopped,'yyyy-MM-dd') AS LastDateWatched, Rating 
@@ -31,12 +31,11 @@ query = """
     ORDER BY Rating DESC 
     LIMIT 10
 """
-
 sqlDF = spark.sql(query)
 sqlDF.show()
 
 
 
 # save the output as parquet
-output_path = "./output/advanced/G-RecentActivityAnalysisAndRecommendations/4g.parquet"
+output_path = "./output/advanced/G-RecentActivityAnalysisAndRecommendations/recentlyWatchedContentWithHighRating.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)

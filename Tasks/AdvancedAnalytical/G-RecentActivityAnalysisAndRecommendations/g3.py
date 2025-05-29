@@ -5,18 +5,20 @@ spark = SparkSession.builder.getOrCreate()
 
 # creating dataframe
 engagementDF = spark.read.parquet('./datasets/EngagementData.parquet')
+contentDF = spark.read.parquet('./datasets/ContentData.parquet')
 
 # create temp view
 engagementDF.createOrReplaceTempView('engagement')
+contentDF.createOrReplaceTempView('content')
 
-# 
+# recently watched content withing last week or month
 query = """
-    SELECT UserID, ShowID, TO_DATE(playbackStopped,'yyyy-MM-dd') AS LastDateWatched 
-    FROM engagement 
-    ORDER BY LastDateWatched DESC 
-    LIMIT 10
+    SELECT c.* 
+    FROM engagement e
+    JOIN content c ON e.showid = c.showid
+    ORDER BY TO_DATE(e.playbackStarted) DESC
+    
 """
-
 sqlDF = spark.sql(query)
 sqlDF.show()
 
