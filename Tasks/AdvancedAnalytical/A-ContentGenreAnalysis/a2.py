@@ -11,7 +11,7 @@ contentDF = spark.read.parquet('./datasets/ContentData.parquet')
 userDF.createOrReplaceTempView('users')
 contentDF.createOrReplaceTempView('content')
 
-# join user and content
+# grouped userid and genre
 query = """
     SELECT u.UserID, c.Genre, u.ShowID, u.Timestamp, u.Rating
     FROM users u

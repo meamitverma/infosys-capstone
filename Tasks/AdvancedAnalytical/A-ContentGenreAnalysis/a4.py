@@ -21,10 +21,10 @@ query = """
             )
         GROUP BY TRIM(Actor)
 """
-filteredDF = spark.sql(query)
-filteredDF.show()
+actorDF = spark.sql(query)
+actorDF.show()
 
 
 # save the output as parquet
 output_path = "./output/advanced/content-genre/avgRatingWithActor.parquet"
-filteredDF.write.mode('overwrite').parquet(output_path)
+actorDF.write.mode('overwrite').parquet(output_path)

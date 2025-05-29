@@ -13,16 +13,12 @@ contentDF.createOrReplaceTempView('content')
 
 # joined table
 query = """
-    SELECT DISTINCT c.*
-    FROM content c
-    WHERE c.genre IN (
-        SELECT DISTINCT c.genre
-        FROM users u
-        JOIN content c ON u.showid = c.showid
-    )
-    AND c.showid NOT IN (
-        SELECT u.showid
-        FROM users u
+    WITH userWatchedGenres AS (
+        SELECT u.userid, c.genre, CONCAT_WS(',', COLLECT_LIST(c.showid)) AS shows
+        FROM content c
+        JOIN users u ON u.showid = c.showid
+        GROUP BY c.userid, c.genre
+        ORDER BY LENGTH(shows)
     )
 """
 

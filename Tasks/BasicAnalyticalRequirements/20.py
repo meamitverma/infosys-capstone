@@ -11,8 +11,8 @@ engagementDF = spark.read.parquet('./datasets/EngagementData.parquet')
 aggDF = engagementDF.groupBy('ShowID').agg(avg('CompletionPercent').alias('AverageCompletionPercent'))
 
 # show with lowest average completion rate
-lowestCompletion = aggDF.agg(min('AverageCompletionRate').alias('LowestCompletion')).first()[0]
-showDF = aggDF.filter(col('AverageCompletionRate') == lowestCompletion)
+lowestCompletion = aggDF.agg(min('AverageCompletionPercent').alias('LowestCompletion')).first()[0]
+showDF = aggDF.filter(col('AverageCompletionPercent') == lowestCompletion)
 showDF.show()
 
 # saving as parquet

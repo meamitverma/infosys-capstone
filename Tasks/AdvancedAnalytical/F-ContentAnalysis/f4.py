@@ -11,7 +11,7 @@ contentDF = spark.read.parquet('./datasets/ContentData.parquet')
 userDF.createOrReplaceTempView('users')
 contentDF.createOrReplaceTempView('content')
 
-# joined table
+# fav genre
 query = """
     SELECT u.userid, c.genre, COUNT(*) AS movieCount
     FROM users u

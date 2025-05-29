@@ -10,12 +10,12 @@ userDF = spark.read.parquet('./datasets/UserWatchData.parquet')
 # create temp view
 userDF.createOrReplaceTempView('users')
 
-# filtered columns
+# creating dataframe
 query = "SELECT * FROM users"
-filteredUserDF = spark.sql(query)
-filteredUserDF.show()
+new_usersDF = spark.sql(query)
+new_usersDF.show()
 
 # save the output as parquet
-output_path = "./output/advanced/content-genre/userData.parquet"
-filteredUserDF.write.mode('overwrite').parquet(output_path)
+output_path = "./output/advanced/A-content-genre-analysis/userData.parquet"
+new_usersDF.write.mode('overwrite').parquet(output_path)
 
