@@ -20,7 +20,6 @@ sqlDF = spark.sql(query)
 sqlDF.show()
 
 
-
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/2g.parquet"
+output_path = "./output/advanced/G-RecentActivityAnalysisAndRecommendations/2g.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)

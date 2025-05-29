@@ -38,5 +38,5 @@ sqlDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/4g.parquet"
+output_path = "./output/advanced/G-RecentActivityAnalysisAndRecommendations/4g.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)

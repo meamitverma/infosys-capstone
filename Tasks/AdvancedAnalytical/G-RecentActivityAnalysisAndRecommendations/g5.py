@@ -56,5 +56,5 @@ recommendDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/showsWithIdAndYear.parquet"
+output_path = "./output/advanced/G-RecentActivityAnalysisAndRecommendations/showsWithIdAndYear.parquet"
 # sqlDF.write.mode('overwrite').parquet(output_path)
