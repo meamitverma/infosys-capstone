@@ -15,10 +15,10 @@ query = """
     FROM users u
     WHERE u.Subscription = 'Premium'
 """
-joinedDF = spark.sql(query)
-joinedDF.show()
+subscriptionDF = spark.sql(query)
+subscriptionDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/premiumUsersShowID.parquet"
-joinedDF.write.mode('overwrite').parquet(output_path)
+output_path = "./output/advanced/B-demographic-and-subscription-tier/premiumUsersShowID.parquet"
+subscriptionDF.write.mode('overwrite').parquet(output_path)

@@ -16,10 +16,10 @@ query = """
     WHERE age > 45
     GROUP BY u.Age
 """
-joinedDF = spark.sql(query)
-joinedDF.show()
+ratingDF = spark.sql(query)
+ratingDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/averageRatingByAge.parquet"
-joinedDF.write.mode('overwrite').parquet(output_path)
+output_path = "./output/advanced/B-demographic-and-subscription-tier/averageRatingByAge.parquet"
+ratingDF.write.mode('overwrite').parquet(output_path)

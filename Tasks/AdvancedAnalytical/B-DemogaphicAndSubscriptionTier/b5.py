@@ -31,10 +31,10 @@ query = """
     JOIN maxCount m
     ON s.usersCount = m.maxCount
 """
-sqlDF = spark.sql(query)
-sqlDF.show()
+showsDF = spark.sql(query)
+showsDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/popularShowsAmongStandard.parquet"
-sqlDF.write.mode('overwrite').parquet(output_path)
+output_path = "./output/advanced/B-demographic-and-subscription-tier/popularShowsAmongStandard.parquet"
+showsDF.write.mode('overwrite').parquet(output_path)

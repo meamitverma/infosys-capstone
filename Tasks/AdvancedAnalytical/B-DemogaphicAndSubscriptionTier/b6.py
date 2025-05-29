@@ -14,7 +14,7 @@ contentDF.createOrReplaceTempView('content')
 
 # comedymovie names watched by users
 query = """
-    SELECT DISTINCT(u.showid), c.genre
+    SELECT DISTINCT(u.showid), c.*
     FROM users u
     JOIN content c ON u.showid = c.showid
     WHERE c.genre = 'Comedy'
@@ -24,5 +24,5 @@ sqlDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/comedyMovieWatched.parquet"
+output_path = "./output/advanced/B-demographic-and-subscription-tier/comedyMovieWatched.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)

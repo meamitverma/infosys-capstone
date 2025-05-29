@@ -25,6 +25,10 @@ query1 = """
     JOIN maxWatchTime m
     ON w.watchTime = m.maxWatchTime
 """
+sql1DF = spark.sql(query1)
+sql1DF.show()
+
+
 # byshowid: shows with higher or lower average watchtime
 query2 = """
     WITH watchTime AS (
@@ -48,15 +52,11 @@ query2 = """
     FROM watchTime w
     JOIN minWatchTime l ON w.watchTime = l.minWatchTime
 """
-
-sql1DF = spark.sql(query1)
 sql2DF = spark.sql(query2)
-
-sql1DF.show()
 sql2DF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/"
+output_path = "./output/advanced/C-WatchTimeAnalysis/"
 sql1DF.write.mode('overwrite').parquet(output_path+'usersWithLongestWatchTime.parquet')
 sql2DF.write.mode('overwrite').parquet(output_path+'showsWithHigherLowerAvgWatchTime.parquet')

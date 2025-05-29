@@ -21,10 +21,10 @@ query = """
     ORDER BY Count DESC
     LIMIT 1
 """
-joinedDF = spark.sql(query)
-joinedDF.show()
+genreDF = spark.sql(query)
+genreDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/popularGenreInAgeGroup.parquet"
-joinedDF.write.mode('overwrite').parquet(output_path)
+output_path = "./output/advanced/B-demographic-and-subscription-tier/popularGenreInAgeGroup.parquet"
+genreDF.write.mode('overwrite').parquet(output_path)

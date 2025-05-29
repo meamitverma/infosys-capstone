@@ -30,5 +30,5 @@ sqlDF.show()
 
 
 # save the output as parquet
-output_path = "./output/advanced/demographicAndSubscriptionTier/movieWithHighestAverageWatchTime.parquet"
+output_path = "./output/advanced/C-WatchTimeAnalysis/movieWithHighestAverageWatchTime.parquet"
 sqlDF.write.mode('overwrite').parquet(output_path)
