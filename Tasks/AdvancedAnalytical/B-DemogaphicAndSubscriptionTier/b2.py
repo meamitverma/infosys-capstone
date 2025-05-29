@@ -13,13 +13,21 @@ contentDF.createOrReplaceTempView('content')
 
 # popular movie type in New York
 query = """
-    WITH 
-        SELECT c.Genre, COUNT(c.Genre) As MovieCount
+    WITH movieCount AS (
+        SELECT c.genre, COUNT(c.genre) As movieCount
         FROM content c
         JOIN users u ON c.ShowID = u.ShowID
         WHERE u.Location = 'New York'
         GROUP BY c.Genre
         ORDER BY MovieCount DESC
+    ),
+    maxCount AS (
+        SELECT MAX(movieCount) AS maxMovieCount
+        FROM movieCount
+    )
+    SELECT s.genre, s.movieCount
+    FROM movieCount s
+    JOIN maxCount h ON s.movieCount = h.maxMovieCount
 """
 genreDF = spark.sql(query)
 genreDF.show()
